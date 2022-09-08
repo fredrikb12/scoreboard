@@ -1,0 +1,23 @@
+Kodtest
+
+Din uppgift är att skapa en poängtavla för tennis i form av en webbapp.
+
+Poängsystemet i tennis är lite klurigt, du kan läsa mer om det här: https://en.wikipedia.org/wiki/Tennis_scoring_system
+
+Regler:
+
+1. Ett gem är vunnet när en spelare har åtminstone 4 poäng och 2 poäng mer än sin motståndare.
+
+2. I tennis beskrivs poäng 0, 1, 2 och 3 som “Love”, “Fifteeen”, “Thirty”, och “Forty”.
+
+3. Om båda spelare har åtminstone 3 poäng vardera och båda spelare har lika många poäng beskrivs poängställningen som “Deuce”.
+
+4. Om båda spelare har åtminstone 3 poäng vardera och en av spelarna har 1 poäng mer än den andra spelaren beskrivs poängställningen som “Advantage”.
+
+- Din app bör ha ett grafiskt gränssnitt som representerar poängställningen (du kan googla på “poängtavla tennis” för inspiration).
+
+- Man ska också kunna registrera att en spelare fått poäng (hur registreringen sker är upp till dig).
+
+- Appen ska kunna hålla reda på poäng för ett gem, hantera deuce, advantage etc och utse en vinnare när en av spelarna uppfyller kraven för att vinna.
+
+I vårt arbete använder vi främst React så det vore bra om din lösning nyttjade antigen React eller något annat modernt frontend framework (Angular, Svelte, Vue, NextJS etc).
