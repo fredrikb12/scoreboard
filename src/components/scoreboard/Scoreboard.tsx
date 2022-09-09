@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IPlayer } from "../../types/player";
 import {
   playerHasWon,
   pointConverter,
 } from "../../utils/points/pointConverter";
 import PlayerScoreRow from "./PlayerScoreRow";
-import { defaultPlayer } from "../../utils/constants";
 import { handleNewPoint } from "../../utils/points/newPoint";
+import { playerFactory } from "../../utils/playerFactory";
 
 function Scoreboard() {
-  const [player1, setPlayer1] = useState<IPlayer>({
-    ...defaultPlayer,
-    name: "Player 1",
-    player: "player1",
-  });
-  const [player2, setPlayer2] = useState<IPlayer>({
-    ...defaultPlayer,
-    name: "Player 2",
-    player: "player2",
-  });
+  const [player1, setPlayer1] = useState<IPlayer>(
+    playerFactory("Player 1", "player1")
+  );
+  const [player2, setPlayer2] = useState<IPlayer>(
+    playerFactory("Player 2", "player2")
+  );
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState<string | null>(null);
 
