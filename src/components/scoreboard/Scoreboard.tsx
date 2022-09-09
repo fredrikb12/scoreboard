@@ -64,7 +64,12 @@ function Scoreboard() {
     }
   }, [player1.points, player2.points, player1.player, player2.player]);
 
-  function resetGame() {}
+  function resetGame() {
+    setPlayer1(playerFactory(player1.name, player1.player));
+    setPlayer2(playerFactory(player2.name, player2.player));
+    setGameOver(false);
+    setWinner(null);
+  }
 
   return (
     <div>

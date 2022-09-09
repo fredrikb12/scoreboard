@@ -5,7 +5,7 @@ import { EitherPlayer } from "../../types/player";
   player2: string;
 }*/
 
-// implementing this interface proved tricky, which is why it's currently marked as any
+// implementing this interface proved tricky, which is why the function currently returns any
 // function should always return an object {player1: string, player2: string}
 
 export function pointConverter(
