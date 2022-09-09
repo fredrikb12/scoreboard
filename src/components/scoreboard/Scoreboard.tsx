@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { IPlayer } from "../../types/player";
-import {
-  playerHasWon,
-  pointConverter,
-} from "../../utils/points/pointConverter";
+import { pointConverter } from "../../utils/points/pointConverter";
 import PlayerScoreRow from "./PlayerScoreRow";
 import { handleNewPoint } from "../../utils/points/newPoint";
 import { playerFactory } from "../../utils/playerFactory";
+import { playerHasWon } from "../../utils/points/playerHasWon";
 
 function Scoreboard() {
   const [player1, setPlayer1] = useState<IPlayer>(
