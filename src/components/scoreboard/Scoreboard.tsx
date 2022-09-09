@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { IPlayer, IPlayers } from "../../types/player";
-import { playerHasWon, pointConverter } from "../../utils/pointConverter";
+import { IPlayer } from "../../types/player";
+import {
+  playerHasWon,
+  pointConverter,
+} from "../../utils/points/pointConverter";
 import PlayerScoreRow from "./PlayerScoreRow";
+import { defaultPlayer } from "../../utils/constants";
+import { handleNewPoint } from "../../utils/points/newPoint";
 
 function Scoreboard() {
-  const defaultPlayer = {
-    name: "",
-    points: 0,
-    displayScore: "0",
-    player: "",
-    lastScorer: false,
-  };
   const [player1, setPlayer1] = useState<IPlayer>({
     ...defaultPlayer,
     name: "Player 1",
@@ -69,18 +67,6 @@ function Scoreboard() {
       });
     }
   }, [player1.points, player2.points, player1.player, player2.player]);
-
-  function handleNewPoint(
-    setScoringPlayer: React.Dispatch<React.SetStateAction<IPlayer>>,
-    setOtherPlayer: React.Dispatch<React.SetStateAction<IPlayer>>
-  ) {
-    setScoringPlayer((prevState) => {
-      return { ...prevState, points: prevState.points + 1, lastScorer: true };
-    });
-    setOtherPlayer((prevState) => {
-      return { ...prevState, lastScorer: false };
-    });
-  }
 
   function resetGame() {}
 
