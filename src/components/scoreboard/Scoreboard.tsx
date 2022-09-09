@@ -7,6 +7,7 @@ import { playerFactory } from "../../utils/playerFactory";
 import { playerHasWon } from "../../utils/points/playerHasWon";
 import ScoreButton from "./ScoreButton/ScoreButton";
 import { StyledScoreboard } from "./styled/Scoreboard.styled";
+import GameOver from "./GameOver";
 
 function Scoreboard() {
   const [player1, setPlayer1] = useState<IPlayer>(
@@ -87,21 +88,7 @@ function Scoreboard() {
           name={player2.name}
         />
       </div>
-      {winner ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginBottom: "50px",
-          }}
-        >
-          <h1>{winner} wins the game!</h1>
-          <button style={{ fontSize: "1.15rem" }} onClick={resetGame}>
-            Start a new game
-          </button>
-        </div>
-      ) : null}
+      {winner ? <GameOver winner={winner} resetGame={resetGame} /> : null}
     </div>
   );
 }
