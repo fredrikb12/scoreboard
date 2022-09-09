@@ -1,33 +1,42 @@
+import { EitherPlayer } from "../../types/player";
+
+/*interface IConvertedPoints {
+  player1: string;
+  player2: string;
+}*/
+
+// implementing this interface proved tricky, which is why it's currently marked as any
+// function should always return an object {player1: string, player2: string}
+
 export function pointConverter(
-  firstPlayerPoints: number,
-  secondPlayerPoints: number,
-  firstPlayerName: string,
-  secondPlayerName: string
-): any /*{ player1: string; player2: string }*/ {
-  console.log(firstPlayerPoints, secondPlayerPoints);
-  if (firstPlayerPoints > 3 && firstPlayerPoints - secondPlayerPoints >= 2) {
-    return { [firstPlayerName]: "Winner", [secondPlayerName]: "Loser" };
-  } else if (firstPlayerPoints >= 3 && secondPlayerPoints >= 3) {
-    if (firstPlayerPoints > secondPlayerPoints) {
+  p1Points: number,
+  p2Points: number,
+  p1Name: EitherPlayer,
+  p2Name: EitherPlayer
+): any {
+  if (p1Points > 3 && p1Points - p2Points >= 2) {
+    return { [p1Name]: "Winner", [p2Name]: "Loser" };
+  } else if (p1Points >= 3 && p2Points >= 3) {
+    if (p1Points > p2Points) {
       return {
-        [firstPlayerName]: "Adv",
-        [secondPlayerName]: pointsToText(secondPlayerPoints),
+        [p1Name]: "Adv",
+        [p2Name]: pointsToText(p2Points),
       };
-    } else if (firstPlayerPoints === secondPlayerPoints) {
+    } else if (p1Points === p2Points) {
       return {
-        [firstPlayerName]: "Deuce",
-        [secondPlayerName]: "Deuce",
+        [p1Name]: "Deuce",
+        [p2Name]: "Deuce",
       };
     } else {
       return {
-        [firstPlayerName]: pointsToText(firstPlayerPoints),
-        [secondPlayerName]: "Adv",
+        [p1Name]: pointsToText(p1Points),
+        [p2Name]: "Adv",
       };
     }
   } else {
     return {
-      [firstPlayerName]: pointsToText(firstPlayerPoints),
-      [secondPlayerName]: pointsToText(secondPlayerPoints),
+      [p1Name]: pointsToText(p1Points),
+      [p2Name]: pointsToText(p2Points),
     };
   }
 }
@@ -47,8 +56,8 @@ export function pointsToText(points: number): string {
   }
 }
 
-export function playerHasWon(scoringPlayerPoints: number, p2: number): boolean {
-  if (scoringPlayerPoints > 3 && scoringPlayerPoints - p2 >= 2) {
+export function playerHasWon(scoringPlayerPoints: number, p2Points: number) {
+  if (scoringPlayerPoints > 3 && scoringPlayerPoints - p2Points >= 2) {
     return true;
   } else {
     return false;
