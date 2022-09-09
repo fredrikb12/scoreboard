@@ -35,33 +35,18 @@ function Scoreboard() {
   }, [player1.points, player2.points, player1.name, player2.name]);
 
   useEffect(() => {
-    if (player1.points > player2.points) {
-      let convertedScores = pointConverter(
-        player1.points,
-        player2.points,
-        player1.player,
-        player2.player
-      );
-      setPlayer1((prevState) => {
-        return { ...prevState, displayScore: convertedScores.player1 };
-      });
-      setPlayer2((prevState) => {
-        return { ...prevState, displayScore: convertedScores.player2 };
-      });
-    } else {
-      let convertedScores = pointConverter(
-        player2.points,
-        player1.points,
-        player2.player,
-        player1.player
-      );
-      setPlayer1((prevState) => {
-        return { ...prevState, displayScore: convertedScores.player1 };
-      });
-      setPlayer2((prevState) => {
-        return { ...prevState, displayScore: convertedScores.player2 };
-      });
-    }
+    const convertedScores = pointConverter(
+      player1.points,
+      player2.points,
+      player1.player,
+      player2.player
+    );
+    setPlayer1((prevState) => {
+      return { ...prevState, displayScore: convertedScores.player1 };
+    });
+    setPlayer2((prevState) => {
+      return { ...prevState, displayScore: convertedScores.player2 };
+    });
   }, [player1.points, player2.points, player1.player, player2.player]);
 
   function resetGame() {

@@ -16,6 +16,8 @@ export function pointConverter(
 ): any {
   if (p1Points > 3 && p1Points - p2Points >= 2) {
     return { [p1Name]: "Winner", [p2Name]: "Loser" };
+  } else if (p2Points > 3 && p2Points - p1Points >= 2) {
+    return { [p2Name]: "Winner", [p1Name]: "Loser" };
   } else if (p1Points >= 3 && p2Points >= 3) {
     if (p1Points > p2Points) {
       return {
@@ -52,7 +54,7 @@ export function pointsToText(points: number): string {
     case 3:
       return "40";
     default:
-      return "Love";
+      return "40";
   }
 }
 
