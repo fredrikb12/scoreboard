@@ -1,24 +1,24 @@
+import styled from "styled-components";
+
 interface IProps {
   name: string;
   displayScore: string;
 }
 
+const StyledScore = styled.p`
+  width: 80px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #1b1b1b;
+  color: #f32929;
+  text-align: center;
+`;
+
 function PlayerScoreRow({ name, displayScore }: IProps) {
   return (
     <div>
       <p>{name} </p>
-      <p
-        style={{
-          backgroundColor: "#1B1B1B",
-          color: "#F32929",
-          padding: "4px 8px",
-          borderRadius: "4px",
-          width: "80px",
-          textAlign: "center",
-        }}
-      >
-        {displayScore}
-      </p>
+      <StyledScore>{displayScore}</StyledScore>
     </div>
   );
 }
