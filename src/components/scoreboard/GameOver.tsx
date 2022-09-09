@@ -1,3 +1,20 @@
+import styled from "styled-components";
+
+const StyledGameOver = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+
+  button {
+    font-size: 1.15rem;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+`;
+
 interface IProps {
   winner: string | null;
   resetGame: () => void;
@@ -5,19 +22,10 @@ interface IProps {
 
 function GameOver({ winner, resetGame }: IProps) {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginBottom: "50px",
-      }}
-    >
+    <StyledGameOver>
       <h1>{winner} wins the game!</h1>
-      <button style={{ fontSize: "1.15rem" }} onClick={resetGame}>
-        Start a new game
-      </button>
-    </div>
+      <button onClick={resetGame}>Start a new game</button>
+    </StyledGameOver>
   );
 }
 
