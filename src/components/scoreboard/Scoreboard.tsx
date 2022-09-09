@@ -5,6 +5,8 @@ import PlayerScoreRow from "./PlayerScoreRow";
 import { handleNewPoint } from "../../utils/points/newPoint";
 import { playerFactory } from "../../utils/playerFactory";
 import { playerHasWon } from "../../utils/points/playerHasWon";
+import ScoreButton from "./ScoreButton/ScoreButton";
+import { StyledScoreboard } from "./styled/Scoreboard.styled";
 
 function Scoreboard() {
   const [player1, setPlayer1] = useState<IPlayer>(
@@ -55,33 +57,51 @@ function Scoreboard() {
   }
 
   return (
-    <div>
-      <div>
-        {winner ? <h1>{winner} wins the game!</h1> : null}
-        {winner ? <button onClick={resetGame}>Start a new game</button> : null}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <StyledScoreboard>
+        <PlayerScoreRow
+          name={player1.name}
+          displayScore={player1.displayScore}
+        />
+        <PlayerScoreRow
+          name={player2.name}
+          displayScore={player2.displayScore}
+        />
+      </StyledScoreboard>
+      <div style={{ display: "flex", gap: "50px" }}>
+        <ScoreButton
+          disabled={gameOver}
+          handleClick={() => handleNewPoint(setPlayer1, setPlayer2)}
+          name={player1.name}
+        />
+        <ScoreButton
+          disabled={gameOver}
+          handleClick={() => handleNewPoint(setPlayer2, setPlayer1)}
+          name={player2.name}
+        />
       </div>
-      <button
-        disabled={gameOver}
-        onClick={() => handleNewPoint(setPlayer1, setPlayer2)}
-      >
-        Score player 1
-      </button>
-      <button
-        disabled={gameOver}
-        onClick={() => handleNewPoint(setPlayer2, setPlayer1)}
-      >
-        Score player 2
-      </button>
-      <PlayerScoreRow
-        name={player1.name}
-        points={player1.points}
-        displayScore={player1.displayScore}
-      />
-      <PlayerScoreRow
-        name={player2.name}
-        points={player2.points}
-        displayScore={player2.displayScore}
-      />
+      {winner ? (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: "50px",
+          }}
+        >
+          <h1>{winner} wins the game!</h1>
+          <button style={{ fontSize: "1.15rem" }} onClick={resetGame}>
+            Start a new game
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -1,15 +1,24 @@
 interface IProps {
   name: string;
-  points: number;
   displayScore: string;
 }
 
-function PlayerScoreRow({ name, points, displayScore }: IProps) {
+function PlayerScoreRow({ name, displayScore }: IProps) {
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
-      <p>Name: {name} </p>
-      <p>Points: {points}</p>
-      <p>Score: {displayScore}</p>
+    <div>
+      <p>{name} </p>
+      <p
+        style={{
+          backgroundColor: "#1B1B1B",
+          color: "#F32929",
+          padding: "4px 8px",
+          borderRadius: "4px",
+          width: "80px",
+          textAlign: "center",
+        }}
+      >
+        {displayScore}
+      </p>
     </div>
   );
 }
