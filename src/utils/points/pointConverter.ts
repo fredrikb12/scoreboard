@@ -8,37 +8,32 @@ import { EitherPlayer } from "../../types/player";
 // implementing this interface proved tricky, which is why the function currently returns any
 // function should always return an object {player1: string, player2: string}
 
-export function pointConverter(
-  p1Points: number,
-  p2Points: number,
-  p1Name: EitherPlayer,
-  p2Name: EitherPlayer
-): any {
+export function pointConverter(p1Points: number, p2Points: number): any {
   if (p1Points > 3 && p1Points - p2Points >= 2) {
-    return { [p1Name]: "Winner", [p2Name]: "Loser" };
+    return { player1: "Winner", player2: "Loser" };
   } else if (p2Points > 3 && p2Points - p1Points >= 2) {
-    return { [p2Name]: "Winner", [p1Name]: "Loser" };
+    return { player2: "Winner", player1: "Loser" };
   } else if (p1Points >= 3 && p2Points >= 3) {
     if (p1Points > p2Points) {
       return {
-        [p1Name]: "Adv",
-        [p2Name]: pointsToText(p2Points),
+        player1: "Adv",
+        player2: pointsToText(p2Points),
       };
     } else if (p1Points === p2Points) {
       return {
-        [p1Name]: "Deuce",
-        [p2Name]: "Deuce",
+        player1: "Deuce",
+        player2: "Deuce",
       };
     } else {
       return {
-        [p1Name]: pointsToText(p1Points),
-        [p2Name]: "Adv",
+        player1: pointsToText(p1Points),
+        player2: "Adv",
       };
     }
   } else {
     return {
-      [p1Name]: pointsToText(p1Points),
-      [p2Name]: pointsToText(p2Points),
+      player1: pointsToText(p1Points),
+      player2: pointsToText(p2Points),
     };
   }
 }

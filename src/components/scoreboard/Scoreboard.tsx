@@ -37,19 +37,14 @@ function Scoreboard() {
   }, [player1.points, player2.points, player1.name, player2.name]);
 
   useEffect(() => {
-    const convertedScores = pointConverter(
-      player1.points,
-      player2.points,
-      player1.player,
-      player2.player
-    );
+    const convertedScores = pointConverter(player1.points, player2.points);
     setPlayer1((prevState) => {
       return { ...prevState, displayScore: convertedScores.player1 };
     });
     setPlayer2((prevState) => {
       return { ...prevState, displayScore: convertedScores.player2 };
     });
-  }, [player1.points, player2.points, player1.player, player2.player]);
+  }, [player1.points, player2.points]);
 
   function resetGame() {
     setPlayer1(playerFactory(player1.name, player1.player));
