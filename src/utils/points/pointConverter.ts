@@ -1,14 +1,7 @@
-import { EitherPlayer } from "../../types/player";
-
-/*interface IConvertedPoints {
-  player1: string;
-  player2: string;
-}*/
-
-// implementing this interface proved tricky, which is why the function currently returns any
-// function should always return an object {player1: string, player2: string}
-
-export function pointConverter(p1Points: number, p2Points: number): any {
+export function pointConverter(
+  p1Points: number,
+  p2Points: number
+): { player1: string; player2: string } {
   if (p1Points > 3 && p1Points - p2Points >= 2) {
     return { player1: "Winner", player2: "Loser" };
   } else if (p2Points > 3 && p2Points - p1Points >= 2) {
