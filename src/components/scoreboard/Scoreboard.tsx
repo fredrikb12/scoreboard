@@ -11,12 +11,8 @@ import GameOver from "./GameOver";
 import { FlexColContainer } from "./styled/FlexColContainer.styled";
 
 function Scoreboard() {
-  const [player1, setPlayer1] = useState<IPlayer>(
-    playerFactory("Player 1", "player1")
-  );
-  const [player2, setPlayer2] = useState<IPlayer>(
-    playerFactory("Player 2", "player2")
-  );
+  const [player1, setPlayer1] = useState<IPlayer>(playerFactory("Player 1"));
+  const [player2, setPlayer2] = useState<IPlayer>(playerFactory("Player 2"));
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState<string | null>(null);
 
@@ -47,8 +43,8 @@ function Scoreboard() {
   }, [player1.points, player2.points]);
 
   function resetGame() {
-    setPlayer1(playerFactory(player1.name, player1.player));
-    setPlayer2(playerFactory(player2.name, player2.player));
+    setPlayer1(playerFactory(player1.name));
+    setPlayer2(playerFactory(player2.name));
     setGameOver(false);
     setWinner(null);
   }

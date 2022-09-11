@@ -1,9 +1,8 @@
-import { IPlayer, EitherPlayer } from "../types/player";
+import { IPlayer } from "../types/player";
 
-export function playerFactory(name: string, player: EitherPlayer): IPlayer {
+export function playerFactory(name: string): IPlayer {
   return {
     name: name,
-    player: player,
     lastScorer: false,
     points: 0,
     displayScore: "",
