@@ -64,12 +64,12 @@ function Scoreboard() {
       <div style={{ display: "flex", gap: "50px" }}>
         <ScoreButton
           disabled={gameOver}
-          handleClick={() => handleNewPoint(setPlayer1, setPlayer2)}
+          handleClick={() => handleNewPoint(setPlayer1)}
           name={player1.name}
         />
         <ScoreButton
           disabled={gameOver}
-          handleClick={() => handleNewPoint(setPlayer2, setPlayer1)}
+          handleClick={() => handleNewPoint(setPlayer2)}
           name={player2.name}
         />
       </div>
