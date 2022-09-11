@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/scoreboard/static/js/main.bbba5868.js",
+    "index.html": "/scoreboard/index.html",
+    "main.bbba5868.js.map": "/scoreboard/static/js/main.bbba5868.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.bbba5868.js"
+  ]
+}
