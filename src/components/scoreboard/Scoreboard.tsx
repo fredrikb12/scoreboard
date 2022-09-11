@@ -8,6 +8,7 @@ import { playerHasWon } from "../../utils/points/playerHasWon";
 import ScoreButton from "./ScoreButton/ScoreButton";
 import { StyledScoreboard } from "./styled/Scoreboard.styled";
 import GameOver from "./GameOver";
+import { FlexColContainer } from "./styled/FlexColContainer.styled";
 
 function Scoreboard() {
   const [player1, setPlayer1] = useState<IPlayer>(
@@ -58,14 +59,7 @@ function Scoreboard() {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <FlexColContainer>
       <StyledScoreboard>
         <PlayerScoreRow
           name={player1.name}
@@ -89,7 +83,7 @@ function Scoreboard() {
         />
       </div>
       {winner ? <GameOver winner={winner} resetGame={resetGame} /> : null}
-    </div>
+    </FlexColContainer>
   );
 }
 
