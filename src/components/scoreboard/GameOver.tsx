@@ -16,7 +16,7 @@ const StyledGameOver = styled.div`
 `;
 
 interface IProps {
-  winner: string | null;
+  winner: string;
   resetGame: () => void;
 }
 

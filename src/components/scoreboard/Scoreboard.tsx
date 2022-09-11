@@ -82,7 +82,9 @@ function Scoreboard() {
           name={player2.name}
         />
       </div>
-      {winner ? <GameOver winner={winner} resetGame={resetGame} /> : null}
+      {winner !== null ? (
+        <GameOver winner={winner} resetGame={resetGame} />
+      ) : null}
     </FlexColContainer>
   );
 }
